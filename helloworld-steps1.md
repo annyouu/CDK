@@ -1,5 +1,33 @@
 # Hello World 環境構築手順
 
+## 0. AWS CLIの認証設定
+
+### AWSコンソールでアクセスキーを発行
+
+1. IAM → ユーザー → ユーザーを作成
+2. 許可ポリシー：`AdministratorAccess`
+3. 作成後：セキュリティ認証情報 → アクセスキーを作成
+4. Access Key IDとSecret Access Keyをメモ
+
+### ターミナルで設定
+
+```bash
+aws configure
+# AWS Access Key ID:     （メモした値）
+# AWS Secret Access Key: （メモした値）
+# Default region name:   ap-northeast-1
+# Default output format: json
+```
+
+### 確認
+
+```bash
+# アカウント情報が返ってきたらOK
+aws sts get-caller-identity
+```
+
+---
+
 ## 1. CDKプロジェクトの初期化
 
 ```bash
